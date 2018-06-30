@@ -8,7 +8,6 @@ let buttons = [];
 let ready = false;
 let dataSave;
 
-
 function pickColor() {
   r = floor(random(256));
   g = floor(random(256));
@@ -18,15 +17,14 @@ function pickColor() {
 }
 
 function setup() {
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDPekCKX4ee6h9NVR2lEITGAM0XIHn-c7c",
-    authDomain: "color-classification.firebaseapp.com",
-    databaseURL: "https://color-classification.firebaseio.com",
-    projectId: "color-classification",
+  const config = {
+    apiKey: "AIzaSyAMNh1LmtxB-19rGReXct1QnE6ZrNNsaXw",
+    authDomain: "color-label-dataset.firebaseapp.com",
+    databaseURL: "https://color-label-dataset.firebaseio.com",
+    projectId: "color-label-dataset",
     storageBucket: "",
-    messagingSenderId: "590040209608"
-  };
+    messagingSenderId: "365128804562"
+  }
   firebase.initializeApp(config);
   database = firebase.database();
   authPromise = firebase.auth().signInAnonymously();
@@ -58,16 +56,16 @@ function setup() {
   }
 
   // Commenting out the loading of data for the webpage running
-  // console.log("Retreiving data... (this can take a minute or two)");
-  // loadData().then(data => {
-  //   dataSave = data;
-  //   console.log("Recieved data. To analyze", data.length, "entries, run: ");
-  //   console.log("showSample(dataSave, 'red-ish')");
-  //   console.log("or analyzeData(dataSave, ['red-ish', 'blue-ish'])");
-  //   console.log("To clean the data by label and hue use: ");
-  //   console.log("let green_data = cleanData(dataSave, 'green-ish', 60, 180)");
-  //   console.log("For any help, please see the documentation above each function in the code!");
-  // });
+  console.log("Retreiving data... (this can take a minute or two)");
+  loadData().then(data => {
+    dataSave = data;
+    // console.log("Recieved data. To analyze", data.length, "entries, run: ");
+    // console.log("showSample(dataSave, 'red-ish')");
+    // console.log("or analyzeData(dataSave, ['red-ish', 'blue-ish'])");
+    // console.log("To clean the data by label and hue use: ");
+    // console.log("let green_data = cleanData(dataSave, 'green-ish', 60, 180)");
+    // console.log("For any help, please see the documentation above each function in the code!");
+  });
 }
 
 async function sendData() {
@@ -76,7 +74,7 @@ async function sendData() {
   // send this data to something?
   // send the data to firebase!
   let { user } = await authPromise;
-  let colorDatabase = database.ref("colors");
+  let colorDatabase = database.ref("/colors/");
 
   // Make an object with data in it
   var data = {

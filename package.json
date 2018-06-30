@@ -1,0 +1,19 @@
+{
+  "name": "crowdsourcecolordata",
+  "version": "1.0.0",
+  "description": "Platform to source color data from",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dezefelix/CrowdSourceColorData.git"
+  },
+  "author": "Felix Boons",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dezefelix/CrowdSourceColorData/issues"
+  },
+  "homepage": "https://github.com/dezefelix/CrowdSourceColorData#readme"
+}
